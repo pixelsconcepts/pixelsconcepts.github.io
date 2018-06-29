@@ -1,19 +1,13 @@
 # Pixel Art Maker Project
 
-[https://pixelsconcepts.github.io/](#pixelartmaker)
-
-
-## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+[https://pixelsconcepts.github.io/]
 
 ## Instructions
 
-To get started, open `designs.js` and start building out the app's functionality.
+#To draw with the Pixel Canvas:
+First set the height and the width of the canvas with the Grid height and Gridwidth input
+Click on create Grid to make the inputed number of grid
+Click on the colorpicker with label "Pick a Shading Color" to select color for your drawing
+Click on on the colorpicker with label "Pick Canvas Background" to change the background of your canvas
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+ENJOY YOUR DRAWING!!!
