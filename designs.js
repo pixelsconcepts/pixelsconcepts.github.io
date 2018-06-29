@@ -6,12 +6,12 @@
 //jquery function begins here 
 
 $(function(){
-		let gridHeight;
-		let gridWidth;
-		let selectedColor;
-		let form = $('#sizePicker');
-		let  canvas = $('#pixelCanvas');
-		
+	let gridHeight;
+	let gridWidth;
+	let selectedColor;
+	let form = $('#sizePicker');
+	let  canvas = $('#pixelCanvas');
+	
 		
 	// function to make the grid for the art maker
 	
@@ -20,11 +20,11 @@ $(function(){
 	**/
 	function makeGrid() {
 		for(let  col = 0; col < gridHeight; col++){
-			const  cellRow = $('<tr></tr>');  //CREATES TABLE ROWS
-			canvas.append(cellRow);
+			const  cellRow = $('<tr></tr>');  
+			canvas.append(cellRow); //APPENDS ROWS TO THE TABLE (CANVAS)
 			for (let  row = 0; row < gridWidth; row++){
 				const  cell = $('<td></td>');
-				cellRow.append(cell);
+				cellRow.append(cell); //APPENDS CELLS TO THE CURRENT ROW
 			};
 		};
 	};
@@ -44,7 +44,8 @@ $(function(){
 		}else{
 			canvas.empty();
 			var warning = $('<p>Please Enter a valid number</p>'); //DEFINES A WARNING PARAGRAPH 
-			warning.addClass('warning').insertBefore(canvas); //ADD CLASS WARNING TO THE PARAGRAPH IF VALUE ENTERED IS LESS THAT 0
+			warning.addClass('warning').insertBefore(canvas); //ADD CLASS WARNING TO THE PARAGRAPH
+			//IF VALUE ENTERED IS LESS THAT 0
 		};
 	});
 	/**
@@ -52,35 +53,31 @@ $(function(){
 	AND ASSIGNS THE CHANGE IN COLOR TO THE VARIABLE selectedColor
 	**/
 			
+	
+	$('table#pixelCanvas').on('click', 'td', function(){
 		
-		$('table#pixelCanvas').on('click', 'td', function(){
+		selectedColor = $('#colorPicker').val();
+			//ROMOVES THE BACKGROUND COLOR OF A CELL WHEN THE CLICK EVEN IS FIRED
+		if($(this).attr('style')){
+			$(this).removeAttr('style');
+		}else{
 			//APPLIES BACKGROUND COLOR OF CURRENT VALUE OF COLOR PICKER TO THE TABLE CELLE WHEN CLICKED
-		selectedColor = $('#colorPicker').val();	
-			if($(this).attr('style')){
-				$(this).removeAttr('style');
-			}else{
-				 $(this).css('background-color', selectedColor);
-			}				
-		});
+			 $(this).css('background-color', selectedColor);
+		}				
+	});
 		
+		//MAKES A CELL WITH COLOR TRANSPARENT WHEN DOUBLE CLICKED
 		/**$('table#pixelCanvas').on('dblclick', 'td', function(){
 				$( this ).css('background-color', 'transparent');				
 		}); **/
 	
-	
 	//CHANGES BACKGROUND COLOR OF THE TABLE CANVAS TO ANY SELECTED SOLOR
 	$('#tablebg').change(function(){
-			let tablebgColor = $( this ).val();
+		let tablebgColor = $( this ).val();
 
-			//APPLIES BACKGROUND COLOR OF CURRENT VALUE OF COLOR PICKER TO THE TABLE CELLE WHEN CLICKED
-				$('table#pixelCanvas').css('background-color', tablebgColor);	
-		
-		
-		});
-
-	
-	
-	
+		//APPLIES BACKGROUND COLOR OF CURRENT VALUE OF COLOR PICKER TO THE TABLE CELLE WHEN CLICKED
+		$('table#pixelCanvas').css('background-color', tablebgColor);		
+	});	
 });
 
 //jquery function ends here
