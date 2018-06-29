@@ -51,15 +51,22 @@ $(function(){
 	EVENT THAT MONITOR THE COLORPICKER FOR COLOR CHANGE,
 	AND ASSIGNS THE CHANGE IN COLOR TO THE VARIABLE selectedColor
 	**/
-	$('#colorPicker').change(function(){
-		selectedColor = $( this ).val();
-
-		//APPLIES BACKGROUND COLOR OF CURRENT VALUE OF COLOR PICKER TO THE TABLE CELLE WHEN CLICKED
+			
+		
 		$('table#pixelCanvas').on('click', 'td', function(){
-			$( this ).css('background-color', selectedColor);	
+			//APPLIES BACKGROUND COLOR OF CURRENT VALUE OF COLOR PICKER TO THE TABLE CELLE WHEN CLICKED
+		selectedColor = $('#colorPicker').val();	
+			if($(this).attr('style')){
+				$(this).removeAttr('style');
+			}else{
+				 $(this).css('background-color', selectedColor);
+			}				
 		});
+		
+		/**$('table#pixelCanvas').on('dblclick', 'td', function(){
+				$( this ).css('background-color', 'transparent');				
+		}); **/
 	
-	});
 	
 	//CHANGES BACKGROUND COLOR OF THE TABLE CANVAS TO ANY SELECTED SOLOR
 	$('#tablebg').change(function(){
